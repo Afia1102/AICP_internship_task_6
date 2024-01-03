@@ -55,7 +55,8 @@ void input_and_store(int choice, int& rejected_sacks) {
     cout << "\nEnter the weight of sack:";
     cin >> weight;
 
-    if (choice == 1) {
+    switch (choice) {
+    	case 1:
         if (weight_sand_min <= weight && weight <= weight_sand_max) {
             cout << "Accepted\nReason: Weight is within range." << endl;
             cout << "Contents: Sand\nWeight: " << weight << endl;
@@ -66,7 +67,8 @@ void input_and_store(int choice, int& rejected_sacks) {
             rejected_sacks++;
             cout<<"Rejected sacks:"<<rejected_sacks;
         }
-    } else if (choice == 2) {
+        break;
+        case 2:
         if (weight_gravel_min <= weight && weight <= weight_gravel_max) {
             cout << "Accepted\nReason: Weight is within range." << endl;
             cout << "Contents: gravel\nWeight: " << weight << endl;
@@ -77,7 +79,8 @@ void input_and_store(int choice, int& rejected_sacks) {
             rejected_sacks++;
             cout<<"Rejected sacks:"<<rejected_sacks;
         }
-    } else if (choice == 3) {
+        break;
+       case 3:
         if (weight_cement_min <= weight && weight <= weight_cement_max) {
             cout << "Accepted\nReason: Weight is within range." << endl;
             cout << "Contents: Cement\nWeight: " << weight << endl;
@@ -88,12 +91,14 @@ void input_and_store(int choice, int& rejected_sacks) {
             rejected_sacks++;
             cout<<"Rejected sacks:"<<rejected_sacks;
         }
-    } else {
+        break;
+     default:
         cout << "Invalid entry" << endl;
     }
-    
 }
+
 //Task_2
+//delivery contains correct number and type of sacks for order
 void customer_order(int& choice, int& rejected_sacks){
 	
 	  do{ 
@@ -107,21 +112,21 @@ void customer_order(int& choice, int& rejected_sacks){
 	    	case 1:
 	    	  cout<<"\nEnter the number of sacks you want to buy:\n";	
 	    	  cin>>num;
-	    	  for(int i=0;i<=num;i++){
+	    	  for(int i=0;i<num;i++){
 	    	  	input_and_store(1,rejected_sacks);
 			  }
 			  break;
 	    	case 2:
-	    	  cout<<"Enter the number:\n";
+	    	  cout<<"\nEnter the number of sacks you want to buy:\n";
 	    	  cin>>num;
-	    	  for(int i=0;i<=num;i++){
+	    	  for(int i=0;i<num;i++){
 	    	  	input_and_store(2,rejected_sacks);
 			  }
 			  break;
 	    	case 3:
-	    	  cout<<"Enter the number:\n";
+	    	  cout<<"\nEnter the number of sacks you want to buy:\n";
 	    	  cin>>num;
-	    	  for(int i=0;i<=num;i++){
+	    	  for(int i=0;i<num;i++){
 	    	  	input_and_store(3,rejected_sacks);
 			  }
 			  break;
